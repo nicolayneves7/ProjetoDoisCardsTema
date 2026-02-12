@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #ea6666, #a24b57);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s;
+}
+
+/* 🌙 Modo escuro */
+body.dark {
+  background: linear-gradient(135deg, #141e30, #243b55);
+}
+
+/* CONTAINER DOS CARDS */
+.cards-container{
+  display: flex;
+  gap: 30px;
+}
+
+/* Responsivo */
+@media (max-width: 700px){
+  .cards-container{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.card {
+  background: #fff;
+  width: 320px;
+  padding: 30px 25px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: 0.4s;
+}
+
+body.dark .card {
+  background: #1f1f1f;
+  color: #fff;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  background: #df3d3d;
+  color: #fff;
+  font-weight: bold;
+  font-size: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  transition: 0.4s;
+}
+
+body.dark .avatar {
+  background: #00c6ff;
+  color: #000;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 14px;
+}
+
+body.dark .subtitle {
+  color: #bbb;
+}
+
+p {
+  font-size: 14px;
+  margin: 16px 0;
+  line-height: 1.4;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.skills span {
+  background: #f1f1f1;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+body.dark .skills span {
+  background: #333;
+  color: #fff;
+}
+
+button {
+  background: linear-gradient(135deg, #0c0d0e, #751111);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.card:hover{
+  transform: translateY(-10px);
+}
