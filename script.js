@@ -9,3 +9,24 @@ btn.addEventListener("click", () => {
     btn.textContent = "🌙";
   }
 });
+const icons = document.querySelectorAll(".info-icon");
+
+icons.forEach(icon => {
+  icon.addEventListener("click", (e) => {
+
+    const card = icon.closest(".card");
+
+    // Fecha outros cards
+    document.querySelectorAll(".card").forEach(c => {
+      if (c !== card) {
+        c.classList.remove("active");
+      }
+    });
+
+    // Abre ou fecha o clicado
+    card.classList.toggle("active");
+
+    e.stopPropagation();
+  });
+});
+
