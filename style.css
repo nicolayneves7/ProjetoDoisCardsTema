@@ -6,7 +6,7 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(135deg, #ea6666, #a24b57);
   display: flex;
   align-items: center;
@@ -19,10 +19,12 @@ body.dark {
   background: linear-gradient(135deg, #141e30, #243b55);
 }
 
-/* CONTAINER DOS CARDS */
+/* CONTAINER */
 .cards-container{
   display: flex;
-  gap: 30px;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 /* Responsivo */
@@ -33,6 +35,7 @@ body.dark {
   }
 }
 
+/* CARD */
 .card {
   background: #fff;
   width: 320px;
@@ -41,6 +44,7 @@ body.dark {
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: 0.4s;
+  position: relative;
 }
 
 body.dark .card {
@@ -48,26 +52,49 @@ body.dark .card {
   color: #fff;
 }
 
-.avatar {
-  width: 70px;
-  height: 70px;
-  background: #df3d3d;
-  color: #fff;
-  font-weight: bold;
-  font-size: 22px;
+/* FOTO + ÍCONE */
+.profile {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 15px;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #df3d3d;
+}
+
+body.dark .profile img {
+  border-color: #00c6ff;
+}
+
+/* ÍCONE */
+.info-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 15px;
-  transition: 0.4s;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-body.dark .avatar {
-  background: #00c6ff;
-  color: #000;
+.info-icon:hover {
+  transform: scale(1.1);
 }
 
+/* TEXTO */
 .subtitle {
   color: #666;
   font-size: 14px;
@@ -83,6 +110,7 @@ p {
   line-height: 1.4;
 }
 
+/* SKILLS */
 .skills {
   display: flex;
   flex-wrap: wrap;
@@ -104,6 +132,7 @@ body.dark .skills span {
   color: #fff;
 }
 
+/* BOTÃO */
 button {
   background: linear-gradient(135deg, #0c0d0e, #751111);
   border: none;
@@ -120,12 +149,42 @@ button:hover {
   opacity: 0.9;
 }
 
+/* TOGGLE DARK */
 .toggle-btn {
   position: absolute;
   top: 20px;
   right: 20px;
 }
 
+/* HOVER LEVE */
 .card:hover{
   transform: translateY(-10px);
+}
+
+/* ===== INFORMAÇÕES ESCONDIDAS ===== */
+
+.extra-info {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+/* Quando ativa */
+.card.active .extra-info {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 15px;
+}
+
+/* ===== BLUR NOS OUTROS ===== */
+
+.cards-container:hover .card {
+  filter: blur(4px);
+  opacity: 0.5;
+}
+
+.cards-container .card:hover {
+  filter: blur(0);
+  opacity: 1;
 }
